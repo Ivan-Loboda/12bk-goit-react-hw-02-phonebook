@@ -27,7 +27,8 @@ class App extends Component {
       name,
       number,
     }
-    this.setState(prevState => ({ contacts: [...prevState.contacts, contact] }))
+    const checkedName = this.state.contacts.find(contact => name.toLowerCase() === contact.name.toLowerCase());
+    checkedName ? alert(`${name} is already in contacts!`) : this.setState(prevState => ({ contacts: [...prevState.contacts, contact] }))
   }
 
   filterContact = () => {
@@ -37,11 +38,12 @@ class App extends Component {
 
   removeContact = (id) => {
     this.setState(prevState => {
-      return { contacts: [...prevState.contacts].filter(item => item.id !== id) }
+      return { contacts: prevState.contacts.filter(item => item.id !== id) }
     })
   }
 
   render() {
+    // console.log(this.filterContact())
     return (
       <>
         <h1>Phonebook</h1>

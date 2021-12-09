@@ -15,7 +15,7 @@ const ContactList = ({ contactsData, onRemoveContact }) => {
 
 }
 
-export default ContactList
+export default ContactList;
 
 ContactList.prototypes = {
     contactsData: PropTypes.array.isRequired,
